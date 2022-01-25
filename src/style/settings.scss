@@ -64,3 +64,14 @@ label {
   margin-bottom: 10px;
   font-size: 18px;
 }
+
+.select-section {
+  &.disabled {
+    opacity: 0.8;
+    &:hover, label, div {
+      cursor: not-allowed;
+      pointer-events:none;
+    }
+  }
+
+}

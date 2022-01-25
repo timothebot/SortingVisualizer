@@ -115,6 +115,14 @@ label {
   font-size: 18px;
 }
 
+.select-section.disabled {
+  opacity: 0.8;
+}
+.select-section.disabled:hover, .select-section.disabled label, .select-section.disabled div {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 #view {
   display: flex;
   position: absolute;
@@ -198,6 +206,14 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #222023;
+}
+
+.nosel, .disabled {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @keyframes title-intro {

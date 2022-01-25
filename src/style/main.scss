@@ -61,6 +61,14 @@ body {
   background-color: #222023;
 }
 
+.nosel, .disabled {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 @keyframes title-intro {
   0% {
     transform: translate(-50%, -50%) scale(1.5);

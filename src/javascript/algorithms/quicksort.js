@@ -38,6 +38,5 @@ class QuickSort extends AbstractAlgorithm{
         let view = $("#view");
         view.find("[data-key='" + j + "']").css("order", i);
         view.find("[data-key='" + i + "']").css("order", j);
-
     }
 }

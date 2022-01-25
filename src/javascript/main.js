@@ -60,7 +60,7 @@ function startSort() {
 
     if(!qs.isRunning()) {
         qs.init(array, speed);
-    }else {
+    } else {
         qs.stop()
     }
 }
@@ -87,14 +87,7 @@ function setAlgorithm(algorithm) {
 // <editor-fold desc="Other Functions">
 
 function toggleSlider() {
-    isSorting = !isSorting;
-    if (isSorting) {
-        $("#speed-slider").attr("disabled", true);
-        $("#length-slider").attr("disabled", true);
-    } else {
-        $("#speed-slider").removeAttr("disabled");
-        $("#length-slider").removeAttr("disabled");
-    }
+    $(".select-section").toggleClass("disabled");
 }
 
 function toggleButton() {
@@ -104,15 +97,9 @@ function toggleButton() {
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
-
-    // While there remain elements to shuffle...
     while (currentIndex != 0) {
-
-        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-
-        // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
     }
@@ -125,13 +112,14 @@ function shuffle(array) {
 
 function renderArray() {
     let html = "";
+    let randomColor = Math.random() * 360
     for (let i = 0; i < array.length; i++) {
-        color = array[i] * 10
-        while (color > 255) {
-            color -= 255;
+        let color = array[i] * 10 + randomColor
+        while (color > 360) {
+            color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar" style="height: ${array[i] * 3 + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
+        html += `<div class="bar" style="height: ${array[i] * 2 + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);

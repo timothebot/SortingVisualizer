@@ -14,7 +14,6 @@ class AbstractAlgorithm {
         this.queue = [];
         this.array = array;
         this.speed = speed;
-
         this.sort()
         this.sort()
         if (this.isSorted()) {
@@ -27,11 +26,11 @@ class AbstractAlgorithm {
     isRunning() { return !this.isDone }
 
     runQueueLoop() {
-        console.log(this.speed)
         this.queueLoop = setInterval(() => {
             if (this.queue.length > 0) {
                 this.queue.shift()();
             } else {
+                this.isDone = true;
                 clearInterval(this.queueLoop);
             }
         }, 200 - this.speed);
