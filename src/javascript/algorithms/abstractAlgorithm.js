@@ -31,6 +31,7 @@ class AbstractAlgorithm {
                 this.queue.shift()();
             } else {
                 this.isDone = true;
+                sortingIsOver()
                 clearInterval(this.queueLoop);
             }
         }, 200 - this.speed);

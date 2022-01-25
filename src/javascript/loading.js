@@ -8,6 +8,7 @@
 
 $(document).ready(function () {
     setTimeout(function () {
+        $("#content").css("display", "block");
         $('#loading').fadeOut(500);
     }, 1100);
 });

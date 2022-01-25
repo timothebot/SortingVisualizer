@@ -10,8 +10,8 @@ console.log("%cWelcome to the console land!", "color: #ff0000; font-size: 20px;"
 $ = jQuery;
 
 // Settings
-let speed = 100;
-let length = 14;
+let speed = 150;
+let length = 25;
 
 // Variables
 let array = [];
@@ -55,14 +55,16 @@ $(document).ready(() => {
 });
 
 function startSort() {
+    if (isSorting) {
+        qs.stop();
+    } else {
+        qs.init(array, speed);
+    }
+
+    isSorting = !isSorting;
+
     toggleSlider()
     toggleButton()
-
-    if(!qs.isRunning()) {
-        qs.init(array, speed);
-    } else {
-        qs.stop()
-    }
 }
 
 function generateArray() {
@@ -119,8 +121,14 @@ function renderArray() {
             color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar" style="height: ${array[i] * 2 + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
+        html += `<div class="bar" style="height: ${array[i] * 3 * 100/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);
+}
+
+function sortingIsOver() {
+    isSorting = false;
+    toggleSlider();
+    toggleButton();
 }
