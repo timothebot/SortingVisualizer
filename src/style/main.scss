@@ -68,6 +68,10 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+button.disabled {
+  pointer-events: none;
+  opacity: .2 !important;
+}
 
 @keyframes title-intro {
   0% {
