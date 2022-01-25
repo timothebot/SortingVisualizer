@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="Sorting Algorithm Visualizer"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <link rel="stylesheet" href="src/style/includes.css"/>
+    <link rel="stylesheet" href="src/fonts/Inter/inter.css" as="font"/>
+    <script src="src/libs/jQuery3.6.0.min.js"></script>
+    <script src="src/libs/rangeslider.js-2.3.0/rangeslider.min.js"></script>
+    <script src="src/javascript/loading.js"></script>
+    <script src="src/javascript/algorithms/abstractAlgorithm.js"></script>
+    <script src="src/javascript/algorithms/quicksort.js"></script>
+    <script src="src/javascript/main.js" defer="defer"></script>
+
+    <title>Sorting Algorithm Visualizer</title>
+</head>
+<body class="loading">
+<!-- <div id="loading"><p>0%</p></div>-->
+<div id="content"><!-- style="display: none">-->
+    <div class="main-title">
+        <h1>tiimos Sorting Algorithm Visualizer</h1>
+    </div>
+    <div class="section-view">
+        <div id="view"></div>
+    </div>
+    <div class="section-run">
+        <button id="btn-go" onClick="startSort()">Sort</button>
+    </div>
+    <div class="section-settings">
+        <div class="select-section algorithm">
+            <label>Algorithm</label>
+            <button id="quicksort" onclick="setAlgorithm('quicksort')" class="selected">Quick Sort</button>
+            <button id="bubblesort" onclick="setAlgorithm('bubblesort')">Bubble Sort</button>
+            <button id="selectionsort" onclick="setAlgorithm('selectionsort')">Selection Sort</button>
+        </div>
+        <div class="select-section speed">
+            <label for="speed-slider" class="title">Speed</label>
+            <div class="slider">
+                <p>Slow</p>
+                <input type="range" id="speed-slider" min="1" max="200">
+                <p>Fast</p>
+            </div>
+        </div>
+        <div class="select-section length">
+            <label for="length-slider" class="title">Length</label>
+            <div class="slider">
+                <p>Short</p>
+                <input type="range" id="length-slider" value="14" min="10">
+                <p>Long</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<!--<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+<Slider min={0} max={200} value={this.state.speed} onChange={(e, v) => this.setState({speed: v})}/>
+  <Slider min={10} max={50} value={this.state.length} onChange={(e, v) => this.setState({length: v})}/>
+-->
