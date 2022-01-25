@@ -15,10 +15,12 @@ body {
 }
 
 .main-title {
-  position: fixed;
+  position: absolute;
+  opacity: .4;
   top: 10px;
   left: 10px;
-  opacity: .4;
+  z-index: 1000;
+  animation: title-intro 1.5s ease-in-out;
   h1 {
     margin: 0;
     font-size: 1.2rem;
@@ -46,12 +48,33 @@ body {
 }
 
 
-
 #loading {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #222023;
+}
+
+@keyframes title-intro {
+  0% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 50%;
+    left: 50%;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    transform: unset;
+    top: 10px;
+    left: 10px;
+  }
 }
