@@ -147,6 +147,9 @@ label {
   max-width: 600px;
   height: 40%;
 }
+#view:not(.running) .bar {
+  transition: opacity 0.2s ease-in-out;
+}
 
 .bar {
   background-color: var(--sorting-bar);

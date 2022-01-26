@@ -16,6 +16,11 @@ class AbstractAlgorithm {
         this.array = array;
         this.speed = speed;
         this.interactions = 0;
+        this.highlightNone()
+    }
+
+    start() {
+        $("#view").addClass("running");
         this.sort()
         if (this.isSorted()) {
             this.isDone = true;
@@ -34,7 +39,9 @@ class AbstractAlgorithm {
                 this.queue.shift()();
             } else {
                 this.isDone = true;
+                $("#view").removeClass("running");
                 sortingIsOver()
+                this.highlightAll()
                 clearInterval(this.queueLoop);
             }
         }, 200 - this.speed);
@@ -54,5 +61,30 @@ class AbstractAlgorithm {
     }
 
     sort() {}
+
+    highlightAll() {
+        $("#view > div.bar").removeClass("highlight");
+        let index = 0;
+        let i = setInterval(() => {
+            $("#view").find("[data-key='" + index + "']").addClass("highlight");
+            index++;
+            if (index >= this.array.length) {
+                clearInterval(i);
+            }
+        }, 40)
+    }
+
+    highlightNone() {
+        let index = 0;
+        let i = setInterval(() => {
+            $("#view > div.bar:nth-child("+(index + 1)+")").removeClass("highlight");
+            index++;
+            if (index >= this.array.length) {
+                this.start()
+                clearInterval(i);
+            }
+        }, 40)
+
+    }
 
 }

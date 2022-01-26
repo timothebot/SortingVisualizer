@@ -12,6 +12,8 @@ $ = jQuery;
 // Settings
 let speed = 150;
 let length = 25;
+let useRainbowColor = true;
+let customColor = "#00ddff";
 
 // Variables
 let array = [];
@@ -134,7 +136,7 @@ function renderArray() {
             color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar" style="height: ${array[i] * 3 * 55/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
+        html += `<div class="bar highlight" style="height: ${array[i] * 3 * 55/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);
