@@ -58,6 +58,7 @@ $(document).ready(() => {
 
 function startSort() {
     if (!isShuffled) {
+        isShuffled = true;
         generateArray();
         renderArray();
         toggleButton("Sort")
@@ -140,6 +141,7 @@ function renderArray() {
 }
 
 function sortingIsOver() {
+    console.log("done")
     isSorting = false;
     isShuffled = false;
     toggleSlider();

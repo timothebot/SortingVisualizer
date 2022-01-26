@@ -7,6 +7,7 @@ class AbstractAlgorithm {
         this.loop = null;
         this.queueLoop = null;
         this.speed = 100;
+        this.interactions = 0;
     }
 
     init(array, speed) {
@@ -14,7 +15,7 @@ class AbstractAlgorithm {
         this.queue = [];
         this.array = array;
         this.speed = speed;
-        this.sort()
+        this.interactions = 0;
         this.sort()
         if (this.isSorted()) {
             this.isDone = true;
@@ -26,7 +27,9 @@ class AbstractAlgorithm {
     isRunning() { return !this.isDone }
 
     runQueueLoop() {
+        console.log(this.interactions)
         this.queueLoop = setInterval(() => {
+            console.log(this.queue[0])
             if (this.queue.length > 0) {
                 this.queue.shift()();
             } else {

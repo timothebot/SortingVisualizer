@@ -6,31 +6,33 @@ class QuickSort extends AbstractAlgorithm{
     }
 
     quicksort(left, right) {
-        if (left < right) {
-            let pivot = this.partition(left, right);
-            this.quicksort(left, pivot - 1);
-            this.quicksort(pivot + 1, right);
+        let index = this.partition(left, right);
+        if (left < index - 1) {
+            this.quicksort(left, index - 1);
+        }
+        if (index < right) {
+            this.quicksort(index, right);
         }
     }
 
     partition(left, right) {
         let pivot = this.array[right];
-        let i = left;
+        let index = left;
         for (let j = left; j < right; j++) {
-            if (this.array[j] <= pivot) {
-                this.swap(i, j);
-                i++;
+            if (this.array[j] < pivot) {
+                this.swap(index, j);
+                index++;
             }
         }
-        this.swap(i, right);
-        return i;
+        this.swap(index, right);
+        return index;
     }
 
     swap(i, j) {
-        let temp = this.array[i];
-        this.array[i] = this.array[j];
-        this.array[j] = temp;
+        this.interactions++;
+        [this.array[i], this.array[j]] = [this.array[j], this.array[i]];
 
+        this.queue.push(() => this.highlight(i,j));
         this.queue.push(() => this.swapVisual(i,j));
     }
 
@@ -38,5 +40,12 @@ class QuickSort extends AbstractAlgorithm{
         let view = $("#view");
         view.find("[data-key='" + j + "']").css("order", i);
         view.find("[data-key='" + i + "']").css("order", j);
+    }
+
+    highlight(i, j) {
+        let view = $("#view");
+        $("#view > div").removeClass("highlight");
+        view.find("[data-key='" + i + "']").addClass("highlight");
+        view.find("[data-key='" + j + "']").addClass("highlight");
     }
 }

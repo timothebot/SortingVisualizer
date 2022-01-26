@@ -155,6 +155,11 @@ label {
   box-shadow: var(--sorting-bar) 0px 0px 10px;
   transition: left 0.2s ease-in-out;
   margin: 1px;
+  opacity: 0.4;
+}
+
+.bar.highlight {
+  opacity: 1;
 }
 
 body {
