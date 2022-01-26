@@ -32,9 +32,7 @@ class AbstractAlgorithm {
     isRunning() { return !this.isDone }
 
     runQueueLoop() {
-        console.log(this.interactions)
         this.queueLoop = setInterval(() => {
-            console.log(this.queue[0])
             if (this.queue.length > 0) {
                 this.queue.shift()();
             } else {
