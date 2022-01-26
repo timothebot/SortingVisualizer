@@ -41,7 +41,7 @@ button {
   background-color: var(--box-bg);
   border-radius: 10px;
   padding: 14px 20px;
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .slider {
@@ -76,4 +76,13 @@ label {
     }
   }
 
+}
+
+@media screen and (max-width: 700px) {
+  .select-section {
+    width: calc(100vw - 40px);
+    border-radius: 0;
+    margin: 0;
+    padding-bottom: 40px;
+  }
 }

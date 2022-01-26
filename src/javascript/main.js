@@ -17,6 +17,8 @@ let length = 25;
 let array = [];
 let isSorting = false;
 
+let isShuffled = true;
+
 // Algorithms
 let qs = new QuickSort();
 
@@ -55,6 +57,12 @@ $(document).ready(() => {
 });
 
 function startSort() {
+    if (!isShuffled) {
+        generateArray();
+        renderArray();
+        toggleButton("Sort")
+        return;
+    }
     if (isSorting) {
         qs.stop();
     } else {
@@ -92,9 +100,13 @@ function toggleSlider() {
     $(".select-section").toggleClass("disabled");
 }
 
-function toggleButton() {
-    $("#btn-go").text(isSorting ? "Stop" : "Sort");
-    $("#btn-go").toggleClass("stop-btn")
+function toggleButton(text="") {
+    let btn = $("#btn-go");
+    btn.text(isSorting ? "Stop" : "Sort");
+    btn.toggleClass("stop-btn")
+    if (text!=="") {
+        btn.text(text);
+    }
 }
 
 function shuffle(array) {
@@ -121,7 +133,7 @@ function renderArray() {
             color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar" style="height: ${array[i] * 3 * 100/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
+        html += `<div class="bar" style="height: ${array[i] * 3 * 55/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);
@@ -129,6 +141,7 @@ function renderArray() {
 
 function sortingIsOver() {
     isSorting = false;
+    isShuffled = false;
     toggleSlider();
-    toggleButton();
+    toggleButton("Shuffle");
 }
