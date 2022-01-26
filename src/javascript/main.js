@@ -131,7 +131,7 @@ function renderArray() {
     let html = "";
     let randomColor = Math.random() * 360
     for (let i = 0; i < array.length; i++) {
-        let color = array[i] * 10 + randomColor
+        let color = (array[i]* 360 + randomColor)/array.length
         while (color > 360) {
             color -= 360;
         }
@@ -143,7 +143,6 @@ function renderArray() {
 }
 
 function sortingIsOver() {
-    console.log("done")
     isSorting = false;
     isShuffled = false;
     toggleSlider();

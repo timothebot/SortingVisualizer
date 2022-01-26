@@ -69,7 +69,7 @@ class AbstractAlgorithm {
             if (index >= this.array.length) {
                 clearInterval(i);
             }
-        }, 40)
+        }, 400/this.array.length)
     }
 
     highlightNone() {
@@ -81,7 +81,7 @@ class AbstractAlgorithm {
                 this.start()
                 clearInterval(i);
             }
-        }, 40)
+        }, 30)
 
     }
 
