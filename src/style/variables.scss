@@ -1,6 +1,10 @@
 /* Variables */
 
 :root {
+  @media (max-width: 640px) {
+    --bg: #424242;
+    --box-bg: #383838;
+  }
   --bg:#333333;
   --box-bg:#2B2B2B;
   --white:#FFFFFF;

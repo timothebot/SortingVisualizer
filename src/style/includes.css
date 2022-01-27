@@ -1,3 +1,4 @@
+@import "../fonts/Inter/inter.css";
 /* Variables */
 :root {
   --bg:#333333;
@@ -8,6 +9,12 @@
   --slider-bg:#F4F4F4;
   --slider-handler: var(--white);
   --slider-bg-unactive: #959595;
+}
+@media (max-width: 640px) {
+  :root {
+    --bg: #424242;
+    --box-bg: #383838;
+  }
 }
 
 .range-slider {
@@ -127,7 +134,7 @@ label {
   pointer-events: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 620px) {
   .select-section {
     width: calc(100vw - 40px);
     border-radius: 0;
@@ -165,10 +172,13 @@ label {
   opacity: 1;
 }
 
+* {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   background-color: var(--bg);
   margin: 0;
-  font-family: "Inter", sans-serif;
   color: var(--white);
   height: 100vh;
   width: 100vw;
@@ -213,7 +223,6 @@ body {
 .section-settings {
   flex-wrap: wrap;
   flex-direction: column;
-  margin-bottom: 10px;
   margin: auto;
 }
 
@@ -262,8 +271,8 @@ button.disabled {
 }
 footer {
   width: 100vw;
-  padding: 40px 30px;
-  background-color: var(--box-bg);
+  padding: 50px 30px;
+  background-color: var(--bg);
 }
 footer p {
   margin: 0;
@@ -275,6 +284,77 @@ a {
   color: var(--white);
   font-weight: bold;
   text-decoration: none;
+}
+
+#info {
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 10px 10px inset;
+  background-color: var(--box-bg);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  #info {
+    height: 70vh;
+  }
+}
+#info h2 {
+  width: 100%;
+  text-align: center;
+}
+#info .info-section {
+  min-height: 400px;
+  max-width: 640px;
+  width: 100%;
+  background-color: var(--bg);
+  padding: 20px;
+  border-radius: 20px;
+}
+#info #infonavigation {
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px var(--white) solid;
+}
+#info #infonavigation button {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+#info #infonavigation button.selected {
+  opacity: 1;
+  font-weight: bold;
+}
+#info #infonavigation button:hover {
+  cursor: pointer;
+}
+#info div[id*=info-]:not(.active) {
+  display: none;
+}
+#info div[id*=info-] p {
+  max-width: 500px;
+  margin: 35px auto auto;
+  font-size: 1.5em;
+}
+
+@media (max-width: 620px) {
+  #infonavigation {
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
+  #infonavigation > button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #info .info-section {
+    border-radius: 0;
+  }
 }
 
 /*# sourceMappingURL=includes.css.map */

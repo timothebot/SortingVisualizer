@@ -5,19 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#2B2B2B"/>
     <meta name="description" content="Sorting Algorithm Visualizer"/>
+    <meta property="twitter:image:src" content="https://timothebot.github.io/SortingVisualizer/src/icons/metaimg.png"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content="Sorting Algorithm Visualizer"/>
+    <meta property="twitter:description" content="A website for visualizing sorting algorithms."/>
     <meta property="og:image" content="https://timothebot.github.io/SortingVisualizer/src/icons/metaimg.png"/>
-    <meta property="og:image:url" content="https://timothebot.github.io/SortingVisualizer/src/icons/metaimg.png"/>
+    <meta property="og:image:alt" content="Sorting Algorithm Visualizer"/>
     <meta property="og:url" content="https://timothebot.github.io/SortingVisualizer/"/>
     <meta property="og:title" content="Sorting Algorithm Visualizer"/>
-    <meta property="og:description" content="A website for visualizing of sorting algorithms."/>
+    <meta property="og:description" content="A website for visualizing sorting algorithms."/>
     <link rel="apple-touch-icon" sizes="180x180" href="src/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="src/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="src/icons/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="src/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "name": "Sorting Algorithm Visualizer",
+            "url": "https://timothebot.github.io/SortingVisualizer/",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "What is Sorting Algorithm Visualizer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sorting Algorithm Visualizer is a tool for visualizing of sorting algorithms. Click <a href=https://timothebot.github.io/SortingVisualizer/>here</a> to see one."
+                }
+            },{
+                "@type": "Question",
+                "name": "What is Quick Sort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quick Sort is a sorting algorithm. It is a divide and conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quick sort. Click <a href=https://timothebot.github.io/SortingVisualizer/>here</a> to see one."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What is Bubble Sort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bubble Sort is a sorting algorithm. It compares adjacent elements and swaps them if they are in wrong order. Click <a href=https://timothebot.github.io/SortingVisualizer/>here</a> to see one."
+                }
+            }, {
+                "@type": "Question",
+                "name": "What is Insertion Sort?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Insertion Sort is a sorting algorithm. It sorts by taking unsorted elements one by one and putting them in their correct position. Click <a href=https://timothebot.github.io/SortingVisualizer/>here</a> to see one."
+                }
+            }]
+        }
+    </script>
     <link rel="stylesheet" href="src/style/includes.css"/>
-    <link rel="stylesheet" href="src/fonts/Inter/inter.css" as="font"/>
     <script src="src/libs/jQuery3.6.0.min.js"></script>
     <script src="src/libs/rangeslider.js-2.3.0/rangeslider.min.js"></script>
     <script src="src/javascript/loading.js"></script>
@@ -69,9 +108,34 @@
         </div>-->
     </div>
 </div>
-<!--<footer>
+<div id="info">
+    <h2>More about algorithms</h2>
+    <div class="info-section">
+        <div id="infonavigation">
+            <button id="info-navigation-quicksort" onclick="setInfo('quicksort')" class="selected">Quick Sort</button>
+            <button id="info-navigation-bubblesort" onclick="setInfo('bubblesort')">Bubble Sort</button>
+            <button id="info-navigation-selectionsort" onclick="setInfo('selectionsort')">Selection Sort</button>
+        </div>
+        <div id="info-quicksort" class="active">
+            <div class="info-content">
+                <p>Quick Sort is a sorting algorithm. It is a divide and conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quick sort. Click <a href="https://timothebot.github.io/SortingVisualizer/">here</a> to see one.</p>
+            </div>
+        </div>
+        <div id="info-bubblesort">
+            <div class="info-content">
+                <p>Bubble Sort is a sorting algorithm. It is a comparison sort. It compares the adjacent elements and swaps them if they are in wrong order. Click <a href="https://timothebot.github.io/SortingVisualizer/">here</a> to see one.</p>
+            </div>
+        </div>
+        <div id="info-selectionsort">
+            <div class="info-content">
+                <p>Selection Sort is a sorting algorithm. It is a comparison sort. It divides the input array into two parts, the sorted part and the unsorted part. It iterates over the unsorted array and finds the smallest element. It then swaps it with the element in the sorted array. Click <a href="https://timothebot.github.io/SortingVisualizer/">here</a> to see one.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
     <p>Made by <a href="https://www.github.com/timothebot/" title="Github Profile" rel="nofollow">timothebot</a></p>
     <p>This Site does not collect any personal data.</p>
-</footer>-->
+</footer>
 </body>
 </html>
