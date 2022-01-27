@@ -1,8 +1,9 @@
-
+* {
+  font-family: 'Inter', sans-serif;
+}
 body {
   background-color: var(--bg);
   margin: 0;
-  font-family: 'Inter', sans-serif;
   color: var(--white);
   height: 100vh;
   width: 100vw;
@@ -94,7 +95,7 @@ button.disabled {
 
 footer {
   width: 100vw;
-  padding: 40px 30px;
+  padding: 50px 30px;
   background-color: var(--bg);
   p {
     margin: 0;
@@ -110,8 +111,11 @@ a {
 }
 
 #info {
-  box-shadow: rgba(black, 0.12) 0 0 10px 10px inset;
+  @media (max-width: 640px) {
+    height: 70vh;
+  }
   height: 100vh;
+  box-shadow: rgba(black, 0.12) 0 0 10px 10px inset;
   background-color: var(--box-bg);
   display: flex;
   align-items: center;
@@ -131,7 +135,7 @@ a {
     border-radius: 20px;
   }
   #infonavigation {
-    height: 50px;
+    min-height: 50px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -159,5 +163,19 @@ a {
       margin: 35px auto auto;
       font-size: 1.5em;
     }
+  }
+}
+@media (max-width: 620px) {
+  #infonavigation {
+    flex-wrap: wrap;
+    > button {
+      width: 100%;
+      padding: 10px;
+    }
+    padding-bottom: 10px;
+
+  }
+  #info .info-section {
+    border-radius: 0;
   }
 }
