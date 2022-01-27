@@ -107,6 +107,7 @@ function setAlgorithm(algorithm) {
         $(this).removeClass("selected");
     });
     $("#" + algorithm).addClass("selected");
+    generateArray();
 }
 
 // </editor-fold>
@@ -134,7 +135,10 @@ function shuffle(array) {
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
     }
-
+    if (!isShuffled) {
+        isShuffled = true;
+        toggleButton("Sort");
+    }
     return array;
 }
 
@@ -150,7 +154,7 @@ function renderArray() {
             color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar highlight" style="height: ${i * 3 * 55/array.length + 5}px; order: ${array[i]}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${i}"></div>`;
+        html += `<div class="bar highlight" style="height: ${i * 3 * 55/array.length + 5}px; order: ${array[i]}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${i}" data-baseorder="${array[i]}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);

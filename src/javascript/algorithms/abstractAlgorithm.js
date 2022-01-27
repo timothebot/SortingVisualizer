@@ -76,7 +76,7 @@ class AbstractAlgorithm {
     highlightNone() {
         let index = 0;
         let i = setInterval(() => {
-            $("#view > div.bar:nth-child("+(index + 1)+")").removeClass("highlight");
+            $("#view > [data-baseorder="+(index)+"]").removeClass("highlight");
             index++;
             if (index >= this.array.length) {
                 this.start()
