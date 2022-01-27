@@ -34,7 +34,6 @@ $(document).ready(() => {
         value: speed,
         onSlideEnd: (event, ui) => {
             speed = ui;
-            console.log(speed);
         },
         polyfill: false,
         handleClass: 'range-slider-thumb',
