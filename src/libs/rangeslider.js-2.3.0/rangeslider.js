@@ -483,7 +483,7 @@
                 $this.data('plugin_' + pluginName, (data = new Plugin(this, options)));
             }
 
-            // Make it possible to access methods from public.
+            // Make it possible to access methods from icons.
             // e.g `$element.rangeslider('method');`
             if (typeof options === 'string') {
                 data[options].apply(data, args);
