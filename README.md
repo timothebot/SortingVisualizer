@@ -20,7 +20,5 @@ I maybe add more algorithms and/or features in the future.
 You can DM me on Discord: tiimo#0002
 
 ### License 
-MIT License
-
-Copyright (c) 2022 Timo Borer
+[MIT](./LICENSE)
 
