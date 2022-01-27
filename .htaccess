@@ -1,0 +1,13 @@
+ExpiresActive On
+ExpiresByType image/gif "now plus 1 month"
+ExpiresByType image/png "now plus 1 month"
+ExpiresByType image/jpeg "now plus 1 month"
+ExpiresByType image/svg+xml "now plus 1 month"
+ExpiresByType image/x-icon "now plus 1 month"
+ExpiresByType application/x-font-truetype "now plus 1 month"
+ExpiresByType text/css "now plus 2 days"
+ExpiresByType application/javascript "now plus 2 days"
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://visualizer.tiimo.site/$1 [R,L]
