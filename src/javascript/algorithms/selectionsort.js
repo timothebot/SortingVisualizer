@@ -1,7 +1,6 @@
 class SelectionSort extends AbstractAlgorithm {
     sort() {
         this.selectionsort()
-        console.log(this.array)
     }
 
     selectionsort() {
