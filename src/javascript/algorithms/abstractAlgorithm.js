@@ -92,10 +92,11 @@ class AbstractAlgorithm {
         this.queue.push(() => this.swapVisual(i,j));
     }
 
-    highlight(i, j) {
+    highlight(i, j=-1) {
         let view = $("#view");
         $("#view > div").removeClass("highlight");
         view.find("[data-key='" + i + "']").addClass("highlight");
+        if (j === -1) return;
         view.find("[data-key='" + j + "']").addClass("highlight");
     }
 

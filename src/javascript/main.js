@@ -25,6 +25,7 @@ let isShuffled = true;
 // Algorithms
 let qs = new QuickSort();
 let bs = new BubbleSort();
+let ss = new SelectionSort();
 
 $(document).ready(() => {
     $("#speed-slider").rangeslider({
@@ -71,6 +72,8 @@ function startSort() {
     if (isSorting) {
         qs.stop();
         bs.stop();
+        ss.stop();
+        generateArray()
     } else {
         switch (selectedAlgorithm) {
             case "quicksort":
@@ -78,6 +81,9 @@ function startSort() {
                 break;
             case "bubblesort":
                 bs.init(array, speed);
+                break;
+            case "selectionsort":
+                ss.init(array, speed);
                 break;
             default:
                 qs.init(array, speed);
@@ -107,7 +113,6 @@ function setAlgorithm(algorithm) {
         $(this).removeClass("selected");
     });
     $("#" + algorithm).addClass("selected");
-    generateArray();
 }
 
 // </editor-fold>
