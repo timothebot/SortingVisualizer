@@ -115,6 +115,12 @@ function setAlgorithm(algorithm) {
     $("#" + algorithm).addClass("selected");
 }
 
+function setInfo(info) {
+    $("[id*='info-']").removeClass("active");
+    $("[id*='info-navigation-']").removeClass("selected");
+    $("#info-" + info).addClass("active");
+    $("#info-navigation-" + info).addClass("selected");
+}
 // </editor-fold>
 
 // <editor-fold desc="Other Functions">

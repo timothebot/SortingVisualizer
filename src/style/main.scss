@@ -45,7 +45,6 @@ body {
 .section-settings {
   flex-wrap: wrap;
   flex-direction: column;
-  margin-bottom: 10px;
   margin: auto;
 }
 
@@ -96,7 +95,7 @@ button.disabled {
 footer {
   width: 100vw;
   padding: 40px 30px;
-  background-color: var(--box-bg);
+  background-color: var(--bg);
   p {
     margin: 0;
     font-size: 1rem;
@@ -108,4 +107,57 @@ a {
   color: var(--white);
   font-weight: bold;
   text-decoration: none;
+}
+
+#info {
+  box-shadow: rgba(black, 0.12) 0 0 10px 10px inset;
+  height: 100vh;
+  background-color: var(--box-bg);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .info-section {
+    min-height: 400px;
+    max-width: 640px;
+    width: 100%;
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: 20px;
+  }
+  #infonavigation {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px var(--white) solid;
+    button {
+      font-size: 1.2rem;
+      opacity: .8;
+      transition: opacity .2s ease-in-out;
+      &.selected {
+        opacity: 1;
+        font-weight: bold;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  div[id*="info-"] {
+    &:not(.active) {
+      display: none;
+    }
+    p {
+      max-width: 500px;
+      margin: 35px auto auto;
+      font-size: 1.5em;
+    }
+  }
 }
