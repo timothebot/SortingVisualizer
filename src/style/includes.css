@@ -269,12 +269,12 @@ button.disabled {
     left: 10px;
   }
 }
-footer {
-  width: 100vw;
+#footer {
+  width: calc(100vw - 60px);
   padding: 50px 30px;
   background-color: var(--bg);
 }
-footer p {
+#footer p {
   margin: 0;
   font-size: 1rem;
   color: var(--white);

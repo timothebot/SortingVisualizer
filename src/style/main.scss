@@ -93,8 +93,8 @@ button.disabled {
   }
 }
 
-footer {
-  width: 100vw;
+#footer {
+  width: calc(100vw - 60px);
   padding: 50px 30px;
   background-color: var(--bg);
   p {

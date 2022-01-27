@@ -9,6 +9,7 @@
 $(document).ready(function () {
     setTimeout(function () {
         $("#content").css("display", "block");
+        $("#footer").show()
         $('#loading').fadeOut(500);
         window.dispatchEvent(new Event('resize'));
     }, 1100);
