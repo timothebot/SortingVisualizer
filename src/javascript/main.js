@@ -14,6 +14,7 @@ let speed = 150;
 let length = 25;
 let useRainbowColor = true;
 let customColor = "#00ddff";
+let selectedAlgorithm = "quicksort";
 
 // Variables
 let array = [];
@@ -23,6 +24,7 @@ let isShuffled = true;
 
 // Algorithms
 let qs = new QuickSort();
+let bs = new BubbleSort();
 
 $(document).ready(() => {
     $("#speed-slider").rangeslider({
@@ -68,8 +70,19 @@ function startSort() {
     }
     if (isSorting) {
         qs.stop();
+        bs.stop();
     } else {
-        qs.init(array, speed);
+        switch (selectedAlgorithm) {
+            case "quicksort":
+                qs.init(array, speed);
+                break;
+            case "bubblesort":
+                bs.init(array, speed);
+                break;
+            default:
+                qs.init(array, speed);
+                break;
+        }
     }
 
     isSorting = !isSorting;
@@ -89,6 +102,7 @@ function generateArray() {
 // <editor-fold desc="Setter Functions">
 
 function setAlgorithm(algorithm) {
+    selectedAlgorithm = algorithm;
     $(".select-section.algorithm > button").each(function () {
         $(this).removeClass("selected");
     });
@@ -131,12 +145,12 @@ function renderArray() {
     let html = "";
     let randomColor = Math.random() * 360
     for (let i = 0; i < array.length; i++) {
-        let color = (array[i]* 360 + randomColor)/array.length
+        let color = (i* 360 + randomColor)/array.length
         while (color > 360) {
             color -= 360;
         }
         color = "hsl(" + color + ",90%,70%)";
-        html += `<div class="bar highlight" style="height: ${array[i] * 3 * 55/array.length + 5}px; order: ${i}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${array[i]}"></div>`;
+        html += `<div class="bar highlight" style="height: ${i * 3 * 55/array.length + 5}px; order: ${array[i]}; box-shadow: ${color} 0px 0px 10px; background-color: ${color};" data-key="${i}"></div>`;
     }
     $("#view").empty();
     $("#view").html(html);

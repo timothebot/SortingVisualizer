@@ -14,6 +14,7 @@ class AbstractAlgorithm {
         this.isDone = false;
         this.queue = [];
         this.array = array;
+        this.unsortedArray = array.slice();
         this.speed = speed;
         this.interactions = 0;
         this.highlightNone()
@@ -85,4 +86,24 @@ class AbstractAlgorithm {
 
     }
 
+    swap(i, j) {
+        [this.array[i], this.array[j]] = [this.array[j], this.array[i]];
+        this.queue.push(() => this.highlight(i,j));
+        this.queue.push(() => this.swapVisual(i,j));
+    }
+
+    highlight(i, j) {
+        let view = $("#view");
+        $("#view > div").removeClass("highlight");
+        view.find("[data-key='" + i + "']").addClass("highlight");
+        view.find("[data-key='" + j + "']").addClass("highlight");
+    }
+
+    swapVisual(i, j) {
+        [this.unsortedArray[i], this.unsortedArray[j]] = [this.unsortedArray[j], this.unsortedArray[i]];
+        let view = $("#view");
+        let temp = view.find("[data-key='" + j + "']").css("order");
+        view.find("[data-key='" + j + "']").css("order", view.find("[data-key='" + i + "']").css("order"));
+        view.find("[data-key='" + i + "']").css("order", temp);
+    }
 }

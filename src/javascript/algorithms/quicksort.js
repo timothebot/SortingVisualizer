@@ -27,29 +27,4 @@ class QuickSort extends AbstractAlgorithm{
         this.swap(index, right);
         return index;
     }
-
-    swap(i, j) {
-        this.interactions++;
-        [this.array[i], this.array[j]] = [this.array[j], this.array[i]];
-
-        let view = $("#view");
-        if (view.find("[data-key='" + j + "']").css("order") > view.find("[data-key='" + i + "']").css("order")) {
-            return
-        }
-        this.queue.push(() => this.highlight(i,j));
-        this.queue.push(() => this.swapVisual(i,j));
-    }
-
-    swapVisual(i, j) {
-        let view = $("#view");
-        view.find("[data-key='" + j + "']").css("order", i);
-        view.find("[data-key='" + i + "']").css("order", j);
-    }
-
-    highlight(i, j) {
-        let view = $("#view");
-        $("#view > div").removeClass("highlight");
-        view.find("[data-key='" + i + "']").addClass("highlight");
-        view.find("[data-key='" + j + "']").addClass("highlight");
-    }
 }
